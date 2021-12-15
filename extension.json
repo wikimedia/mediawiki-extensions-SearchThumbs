@@ -1,0 +1,34 @@
+{
+	"name": "SearchThumbs",
+	"version": "1.0",
+	"author": "[https://www.mediawiki.org/wiki/User:Sophivorus Sophivorus]",
+	"url": "https://www.mediawiki.org/wiki/Extension:SearchThumbs",
+	"descriptionmsg": "searchthumbs-desc",
+	"license-name": "GPL-3.0-or-later",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"MessagesDirs": {
+		"SearchThumbs": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.SearchThumbs": {
+			"styles": "SearchThumbs.css"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "SearchThumbs"
+	},
+	"AutoloadClasses": {
+		"SearchThumbs": "SearchThumbs.php"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "SearchThumbs::onBeforePageDisplay",
+		"ShowSearchHit": "SearchThumbs::onShowSearchHit"
+	},
+	"manifest_version": 2
+}
