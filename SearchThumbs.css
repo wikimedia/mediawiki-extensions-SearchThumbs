@@ -1,3 +1,7 @@
+.mw-search-result {
+	clear: both;
+}
+
 .mw-search-result-thumb {
 	float: right;
 	margin: 0 0 1em 1em;
