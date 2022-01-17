@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Verdy p"
 		]
 	},
-	"searchthumbs-desc": "Ajoute les vignettes de l’image aux résultats de recherche."
+	"searchthumbs-desc": "Ajoute des vignettes d’image aux résultats de recherche."
 }
