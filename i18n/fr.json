@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Verdy p"
+			"Verdy p",
+			"Wladek92"
 		]
 	},
-	"searchthumbs-desc": "Ajoute des vignettes d’image aux résultats de recherche."
+	"searchthumbs-desc": "Ajoute les vignettes d’images aux résultats de recherche."
 }
