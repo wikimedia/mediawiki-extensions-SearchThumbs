@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SearchThumbs {
 
 	/**
@@ -46,7 +48,7 @@ class SearchThumbs {
 			$image = $row->pp_value;
 		}
 		if ( $image ) {
-			$file = RepoGroup::singleton()->getLocalRepo()->findFile( $image );
+			$file = MediaWikiServices::getInstance()->getRepoGroup()->getLocalRepo()->findFile( $image );
 			if ( $file ) {
 				$thumb = '<img class="mw-search-result-thumb" src="' . $file->createThumb( 120 ) . '" />';
 				$link = $thumb . $link;
