@@ -41,17 +41,20 @@ class SearchThumbs {
 		&$html
 	) {
 		$id = $result->getTitle()->getArticleID();
-		$dbr = wfGetDB( DB_REPLICA );
-		$result = $dbr->select( 'page_props', 'pp_value', [ 'pp_propname = "page_image_free"', "pp_page = $id" ] );
-		$image = null;
-		foreach ( $result as $row ) {
-			$image = $row->pp_value;
-		}
+		$services = MediaWikiServices::getInstance();
+		$lb = $services->getDBLoadBalancer();
+		$dbr = $lb->getConnectionRef( DB_REPLICA );
+		$image = $dbr->newSelectQueryBuilder()
+			->select( 'pp_value' )
+			->from( 'page_props' )
+			->where( [ 'pp_propname' => 'page_image_free', 'pp_page' => $id ] )
+			->fetchField();
 		if ( $image ) {
-			$file = MediaWikiServices::getInstance()->getRepoGroup()->getLocalRepo()->findFile( $image );
+			$file = $services->getRepoGroup()->findFile( $image );
 			if ( $file ) {
-				$thumb = '<img class="mw-search-result-thumb" src="' . $file->createThumb( 120 ) . '" />';
-				$link = $thumb . $link;
+				$thumb = $file->createThumb( 120 );
+				$img = '<img class="mw-search-result-thumb" src="' . $thumb . '" />';
+				$link = $img . $link;
 			}
 		}
 	}
