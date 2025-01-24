@@ -42,8 +42,8 @@ class SearchThumbs {
 	) {
 		$id = $result->getTitle()->getArticleID();
 		$services = MediaWikiServices::getInstance();
-		$lb = $services->getDBLoadBalancer();
-		$dbr = $lb->getConnectionRef( DB_REPLICA );
+		$provider = $services->getConnectionProvider();
+		$dbr = $provider->getReplicaDatabase();
 		$image = $dbr->newSelectQueryBuilder()
 			->select( 'pp_value' )
 			->from( 'page_props' )

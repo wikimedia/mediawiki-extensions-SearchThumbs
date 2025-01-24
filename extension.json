@@ -1,13 +1,13 @@
 {
 	"name": "SearchThumbs",
-	"version": "1.3",
+	"version": "1.5",
 	"author": "[https://www.mediawiki.org/wiki/User:Sophivorus Sophivorus]",
 	"url": "https://www.mediawiki.org/wiki/Extension:SearchThumbs",
 	"descriptionmsg": "searchthumbs-desc",
 	"license-name": "GPL-3.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.39"
 	},
 	"MessagesDirs": {
 		"SearchThumbs": [
